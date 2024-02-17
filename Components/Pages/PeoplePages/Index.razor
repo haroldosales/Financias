@@ -1,0 +1,27 @@
+﻿@page "/people"
+@using Microsoft.AspNetCore.Components.QuickGrid
+@inject Financias.Models.PeopleContext DB
+@using Financias.Models
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="people/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="DB.People">
+    <PropertyColumn Property="people => people.Name" />
+    <PropertyColumn Property="people => people.Description" />
+    <PropertyColumn Property="people => people.Phone" />
+    <PropertyColumn Property="people => people.StartOfHosting" />
+    <PropertyColumn Property="people => people.EndOfHosting" />
+    <PropertyColumn Property="people => people.Price" />
+
+    <TemplateColumn Context="people">
+        <a href="@($"people/edit?id={people.Id}")">Edit</a> |
+        <a href="@($"people/details?id={people.Id}")">Details</a> |
+        <a href="@($"people/delete?id={people.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>

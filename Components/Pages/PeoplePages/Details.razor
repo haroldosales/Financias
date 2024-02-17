@@ -1,0 +1,55 @@
+﻿@page "/people/details"
+@inject Financias.Models.PeopleContext DB
+@using Financias.Models
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h4>People</h4>
+    <hr />
+    @if (people is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">Name</dt>
+            <dd class="col-sm-10">@people.Name</dd>
+            <dt class="col-sm-2">Description</dt>
+            <dd class="col-sm-10">@people.Description</dd>
+            <dt class="col-sm-2">Phone</dt>
+            <dd class="col-sm-10">@people.Phone</dd>
+            <dt class="col-sm-2">StartOfHosting</dt>
+            <dd class="col-sm-10">@people.StartOfHosting</dd>
+            <dt class="col-sm-2">EndOfHosting</dt>
+            <dd class="col-sm-10">@people.EndOfHosting</dd>
+            <dt class="col-sm-2">Price</dt>
+            <dd class="col-sm-10">@people.Price</dd>
+        </dl>
+        <div>
+            <a href="@($"/people/edit?id={people.Id}")">Edit</a> |
+            <a href="@($"/people")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    People? people;
+
+    [SupplyParameterFromQuery]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        people = await DB.People.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (people is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

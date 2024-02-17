@@ -1,4 +1,8 @@
-using Financias.Components;
+﻿using Financias.Components;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Financias.Models;
+
 
 namespace Financias
 {
@@ -11,6 +15,9 @@ namespace Financias
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
+            builder.Services.AddDbContext<PeopleContext>(opt => opt.UseInMemoryDatabase("People"));
+
+            builder.Services.AddQuickGridEntityFrameworkAdapter();;
 
             var app = builder.Build();
 

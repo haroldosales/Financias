@@ -1,0 +1,68 @@
+﻿@page "/people/create"
+@inject Financias.Models.PeopleContext DB
+@using Financias.Models
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h4>People</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="People" OnValidSubmit="AddPeople" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" />
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label> 
+                <InputText id="name" @bind-Value="People.Name" class="form-control" /> 
+                <ValidationMessage For="() => People.Name" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label> 
+                <InputText id="description" @bind-Value="People.Description" class="form-control" /> 
+                <ValidationMessage For="() => People.Description" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone:</label> 
+                <InputNumber id="phone" @bind-Value="People.Phone" class="form-control" /> 
+                <ValidationMessage For="() => People.Phone" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="startofhosting" class="form-label">StartOfHosting:</label> 
+                <InputDate id="startofhosting" @bind-Value="People.StartOfHosting" class="form-control" /> 
+                <ValidationMessage For="() => People.StartOfHosting" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="endofhosting" class="form-label">EndOfHosting:</label> 
+                <InputDate id="endofhosting" @bind-Value="People.EndOfHosting" class="form-control" /> 
+                <ValidationMessage For="() => People.EndOfHosting" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="price" class="form-label">Price:</label> 
+                <InputNumber id="price" @bind-Value="People.Price" class="form-control" /> 
+                <ValidationMessage For="() => People.Price" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/people">Back to List</a>
+</div>
+
+@code {
+
+    [SupplyParameterFromForm]
+    public People People { get; set; } = new();
+
+    // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+    public async Task AddPeople()
+    {
+        DB.People.Add(People);
+        await DB.SaveChangesAsync();
+        NavigationManager.NavigateTo("/people");
+    }
+}
