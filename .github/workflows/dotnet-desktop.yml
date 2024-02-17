@@ -1,4 +1,4 @@
-﻿# This workflow uses actions that are not certified by GitHub.
+# This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
@@ -78,13 +78,8 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     # Execute all unit tests in the solution
-<<<<<<< HEAD
-    #- name: Execute unit tests
-    #  run: dotnet test
-=======
     - name: Execute unit tests
       run: dotnet test
->>>>>>> fbc2b5bee89b4d147e966e20b385d81626f74d30
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
