@@ -3,11 +3,11 @@
 @using Financias.Models
 @inject NavigationManager NavigationManager
 
-<PageTitle>Create</PageTitle>
+<PageTitle>Criar nova reservar </PageTitle>
 
-<h1>Create</h1>
+<h1>Reservar</h1>
 
-<h4>People</h4>
+<h4>criar uma reservar</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,36 +15,36 @@
             <DataAnnotationsValidator />
             <ValidationSummary class="text-danger" />
             <div class="mb-3">
-                <label for="name" class="form-label">Name:</label> 
+                <label for="name" class="form-label">Nome:</label> 
                 <InputText id="name" @bind-Value="People.Name" class="form-control" /> 
                 <ValidationMessage For="() => People.Name" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="description" class="form-label">Description:</label> 
+                <label for="description" class="form-label">Descrição:</label> 
                 <InputText id="description" @bind-Value="People.Description" class="form-control" /> 
                 <ValidationMessage For="() => People.Description" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="phone" class="form-label">Phone:</label> 
+                <label for="phone" class="form-label">Celular:</label> 
                 <InputNumber id="phone" @bind-Value="People.Phone" class="form-control" /> 
                 <ValidationMessage For="() => People.Phone" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="startofhosting" class="form-label">StartOfHosting:</label> 
+                <label for="startofhosting" class="form-label">Inicio da hospedagem:</label> 
                 <InputDate id="startofhosting" @bind-Value="People.StartOfHosting" class="form-control" /> 
                 <ValidationMessage For="() => People.StartOfHosting" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="endofhosting" class="form-label">EndOfHosting:</label> 
+                <label for="endofhosting" class="form-label">final da hospedagem:</label> 
                 <InputDate id="endofhosting" @bind-Value="People.EndOfHosting" class="form-control" /> 
                 <ValidationMessage For="() => People.EndOfHosting" class="text-danger" /> 
             </div>        
             <div class="mb-3">
-                <label for="price" class="form-label">Price:</label> 
+                <label for="price" class="form-label">Preço:</label> 
                 <InputNumber id="price" @bind-Value="People.Price" class="form-control" /> 
                 <ValidationMessage For="() => People.Price" class="text-danger" /> 
             </div>        
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Reservar</button>
         </EditForm>
     </div>
 </div>

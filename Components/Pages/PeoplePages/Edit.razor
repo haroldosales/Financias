@@ -4,9 +4,9 @@
 @inject NavigationManager NavigationManager
 @using Microsoft.EntityFrameworkCore
 
-<PageTitle>Edit</PageTitle>
+<PageTitle>Editar a Reservar</PageTitle>
 
-<h1>Edit</h1>
+<h1>Editar</h1>
 
 <h4>People</h4>
 <hr />
@@ -23,27 +23,27 @@ else
                 <ValidationSummary />
                 <input type="hidden" name="People.Id" value="@People.Id" />
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name:</label>
+                    <label for="name" class="form-label">Nome:</label>
                     <InputText id="name" @bind-Value="People.Name" class="form-control" />
                     <ValidationMessage For="() => People.Name" class="text-danger" />
                 </div>
                 <div class="mb-3">
-                    <label for="description" class="form-label">Description:</label>
+                    <label for="description" class="form-label">Descrição:</label>
                     <InputText id="description" @bind-Value="People.Description" class="form-control" />
                     <ValidationMessage For="() => People.Description" class="text-danger" />
                 </div>
                 <div class="mb-3">
-                    <label for="phone" class="form-label">Phone:</label>
+                    <label for="phone" class="form-label">Celular:</label>
                     <InputNumber id="phone" @bind-Value="People.Phone" class="form-control" />
                     <ValidationMessage For="() => People.Phone" class="text-danger" />
                 </div>
                 <div class="mb-3">
-                    <label for="startofhosting" class="form-label">StartOfHosting:</label>
+                    <label for="startofhosting" class="form-label">Inicio da hospedagem:</label>
                     <InputDate id="startofhosting" @bind-Value="People.StartOfHosting" class="form-control" />
                     <ValidationMessage For="() => People.StartOfHosting" class="text-danger" />
                 </div>
                 <div class="mb-3">
-                    <label for="endofhosting" class="form-label">EndOfHosting:</label>
+                    <label for="endofhosting" class="form-label">Fim da hospedagem:</label>
                     <InputDate id="endofhosting" @bind-Value="People.EndOfHosting" class="form-control" />
                     <ValidationMessage For="() => People.EndOfHosting" class="text-danger" />
                 </div>
