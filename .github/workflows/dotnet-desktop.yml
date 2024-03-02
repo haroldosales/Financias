@@ -50,10 +50,9 @@ env:
   DOTNET_VERSION: '8.0.x'
 
 jobs:
-
   build:
 
-     name: build-${{matrix.os}}
+    name: build-${{matrix.os}}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -70,4 +69,4 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build --configuration Release --no-restoreges
+      run: dotnet build --configuration Release --no-restore
