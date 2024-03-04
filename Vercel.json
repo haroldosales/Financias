@@ -1,10 +1,18 @@
 {
   "version": 2,
-  "routes": [
-    { "handle": "filesystem" },
+  "builds": [
     {
-      "src": "/.*",
-      "dest": "/wwwroot"
+      "src": "publish/**/*.dll",
+      "use": "@vercel/dotnet"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/Financias/data/:collectionName",
+      "dest": "/Financias/data/:collectionName"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
-}
