@@ -4,7 +4,7 @@
     { "handle": "filesystem" },
     {
       "src": "/.*",
-      "dest": "/App.razor"
+      "dest": "/wwwroot"
     }
   ]
 }
