@@ -1,7 +1,9 @@
-﻿    using Financias.Components;
+﻿using Financias.Components;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Financias.Models;
+using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 
 namespace Financias
@@ -10,6 +12,24 @@ namespace Financias
     {
         public static void Main(string[] args)
         {
+
+string connectionString = "server=0.0.0.0;port=5432;database=clientes;user id=postgres;password=toorpos;";
+
+using (var connection = new SqlConnection(connectionString))
+{
+    connection.Open();
+    // Execute SQL statements here
+
+    string sql = "INSERT INTO cliente (id, name, description, phone) VALUES (@id, @name, @description, @phone)";
+
+    using (SqlCommand command = new SqlCommand(sql, connection))
+    {
+        
+
+        command.ExecuteNonQuery();
+    }
+    connection.Close();
+}
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
